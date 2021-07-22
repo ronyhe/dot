@@ -9,5 +9,5 @@ It allows you to easily display graphs to your users. For example:
 ```javascript
 const dot = 'digraph {a -> b}'
 const encoded = encodeURIComponent(dot)
-window.open(`https://#${encoded}`, '_blank')
+window.open(`https://ronyhe.github.io/dot/index.html?${encoded}`, '_blank')
 ```
