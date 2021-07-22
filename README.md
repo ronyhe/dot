@@ -5,7 +5,7 @@ This is a basic html/js page, hosted on github pages that's meant to take dot la
 The rendering is done using the wonderful https://github.com/magjac/d3-graphviz library.
 
 I made this page because most visual renderers are combined with dot language editors which didn't suit my needs.
-This page allows you to easily display graphs to your users. For example:
+It allows you to easily display graphs to your users. For example:
 ```javascript
 const dot = 'digraph {a -> b}'
 const encoded = encodeURIComponent(dot)
