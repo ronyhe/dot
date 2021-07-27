@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <body>
-<script src="//d3js.org/d3.v5.min.js"></script>
-<script src="https://unpkg.com/@hpcc-js/wasm@0.3.11/dist/index.min.js"></script>
-<script src="https://unpkg.com/d3-graphviz@3.0.5/build/d3-graphviz.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/viz.js@2.1.2/viz.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/viz.js@2.1.2/full.render.js"></script>
 <div id="graph" style="text-align: center;"></div>
 <script>
 
     const dot = decodeURIComponent(new URL(window.location.href).search.substring(1))
-    d3.select("#graph").graphviz({zoom: false})
-        .renderDot(dot)
+
+    if (!dot || dot.trim() === '') {
+        document.getElementById('graph').innerHTML = '<p>No graph data provided. Add URL-encoded DOT graph as query string.</p><p>Example: <code>?digraph%20G%20%7B%20A%20-%3E%20B%20%7D</code></p>';
+    } else {
+        const viz = new Viz();
+        viz.renderSVGElement(dot)
+            .then(element => {
+                document.getElementById('graph').appendChild(element);
+            })
+            .catch(error => {
+                console.error('Error rendering graph:', error);
+                document.getElementById('graph').innerHTML = '<p>Error rendering graph: ' + error.message + '</p>';
+            });
+    }
 
 </script>
