@@ -8,7 +8,7 @@
 <script>
 
     const dot = decodeURIComponent(new URL(window.location.href).search.substring(1))
-    d3.select("#graph").graphviz()
+    d3.select("#graph").graphviz({zoom: false})
         .renderDot(dot)
 
 </script>
