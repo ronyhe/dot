@@ -9,7 +9,7 @@
     const dot = decodeURIComponent(new URL(window.location.href).search.substring(1))
 
     if (!dot || dot.trim() === '') {
-        document.getElementById('graph').innerHTML = '<p>No graph data provided. Add URL-encoded DOT graph as query string.</p><p>Example: <code>?digraph%20G%20%7B%20A%20-%3E%20B%20%7D</code></p>';
+        document.getElementById('graph').innerHTML = '<p>No graph data provided. Add URL-encoded DOT graph as query string.</p><p>Example: <a href="https://ronyhe.github.io/dot/?digraph%20G%20%7B%20A%20-%3E%20B%20%7D"><code>https://ronyhe.github.io/dot/?digraph%20G%20%7B%20A%20-%3E%20B%20%7D</code></a></p>';
     } else {
         const viz = new Viz();
         viz.renderSVGElement(dot)
